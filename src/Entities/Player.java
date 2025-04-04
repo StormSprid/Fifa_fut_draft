@@ -16,6 +16,9 @@ public class Player {
     protected int rating;
     protected String club;
     protected String nationality;
-    protected String league;
 
+    @Override
+    public String toString() {
+        return name + "|" + position + "|" + rating + "|" + club + "|" + nationality +"|";
+    }
 }
