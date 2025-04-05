@@ -13,4 +13,6 @@ public interface PlayerProvider {
     List<Player> getSortedPlayersByRating();
     List<Player> getSortedPlayersByRatingBackward();
     Optional<Player> getFirstPlayerByPosition(Position position);
+    Optional<Player> getPlayerByPositionWithSkip(Position position,int skip);
+
 }

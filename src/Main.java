@@ -2,6 +2,7 @@ import Entities.Player;
 import Entities.Position;
 import Entities.Team;
 import Logic.Players.LoadPlayers;
+import Logic.Teams.LoadTeams;
 import lombok.var;
 
 public class Main {
@@ -11,7 +12,7 @@ public class Main {
 //        var nat = manager.getPlayersByNationality("france");
 //        manager.getFirstPlayerByPosition(Position.CB)
 //                .ifPresent(System.out::println);
-        Team tm = new Team();
+        Team tm = LoadTeams.generateTestTeam();
         tm.displayTeam();
 
     }

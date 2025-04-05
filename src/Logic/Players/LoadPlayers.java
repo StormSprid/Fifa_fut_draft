@@ -81,4 +81,9 @@ public class LoadPlayers implements PlayerProvider{
                     .findFirst();
     }
 
+    @Override
+    public Optional<Player> getPlayerByPositionWithSkip(Position position, int skip) {
+        return getAllPlayers().stream().filter(player -> player.getPosition().equals(position)).skip(skip).findFirst();
+    }
+
 }
