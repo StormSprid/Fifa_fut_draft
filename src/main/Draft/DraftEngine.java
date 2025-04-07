@@ -20,11 +20,10 @@ public class DraftEngine {
         DraftEngine de = new DraftEngine();
         de.startDraft();
     }
-    public  void startDraft(){
+    public  Team startDraft(){
         int cbCount=0;
         System.out.println("Start Draft:\n");
         LoadPlayers ld = new LoadPlayers();
-        List<Player> allplayers = ld.getAllPlayers();
         List<Player> choosenTeam = new ArrayList<>();
         for(int i = 0; i < 11; i++) {
             if (i == 3) { // CB
@@ -34,7 +33,7 @@ public class DraftEngine {
                     choosenTeam.add(choosenPlayer);
                     System.out.println(choosenPlayer.getName() + " Added");
                 }
-                continue; // ← остановить итерацию после 2-х CB
+                continue;
             }
 
             System.out.printf("Round %d:\n", i + 1);
@@ -45,6 +44,7 @@ public class DraftEngine {
         }
         team.setPlayers(choosenTeam);
         team.displayTeam();
+        return  team;
     }
 
 
