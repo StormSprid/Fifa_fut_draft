@@ -86,4 +86,9 @@ public class LoadPlayers implements PlayerProvider{
         return getAllPlayers().stream().filter(player -> player.getPosition().equals(position)).skip(skip).findFirst();
     }
 
+    @Override
+    public List<Player> getPlayersByPosition(Position position) {
+        return getAllPlayers().stream().filter(player -> player.getPosition().equals(position)).collect(Collectors.toList());
+    }
+
 }
