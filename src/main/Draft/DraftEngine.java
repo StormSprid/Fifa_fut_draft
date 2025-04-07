@@ -58,9 +58,12 @@ public class DraftEngine {
 
         }
 
-        int result = scanner.nextInt();
-        if(result>count){
-            System.out.println("Incorrect input");
+        int result = -1;
+        while (result <1 || result > count){
+            result = scanner.nextInt();
+            if (result<1 || result > count){
+                System.out.println("INCORRECT INPUT!");
+            }
         }
 
 
