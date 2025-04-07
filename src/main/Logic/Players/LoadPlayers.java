@@ -1,7 +1,7 @@
-package Logic.Players;
+package main.Logic.Players;
 
-import Entities.Player;
-import Entities.Position;
+import main.Entities.Player;
+import main.Entities.Position;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

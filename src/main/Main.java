@@ -1,19 +1,23 @@
-import Entities.Player;
-import Entities.Position;
-import Entities.Team;
-import Logic.Players.LoadPlayers;
-import Logic.Teams.LoadTeams;
-import lombok.var;
+package main;
+
+import main.Entities.Team;
+import main.Logic.Players.Teams.TeamBuilder;
+
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
 //        var manager = new LoadPlayers();
 //        var club = manager.getPlayersByClub("barcelona");
 //        var nat = manager.getPlayersByNationality("france");
 //        manager.getFirstPlayerByPosition(Position.CB)
 //                .ifPresent(System.out::println);
-        Team tm = LoadTeams.generateTestTeam();
+        Team tm = TeamBuilder.generateTestTeam();
         tm.displayTeam();
 
+
+
+
     }
+
 }

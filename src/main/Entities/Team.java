@@ -1,11 +1,8 @@
-package Entities;
+package main.Entities;
 
-import Logic.Players.LoadPlayers;
-import Logic.Teams.LoadTeams;
 import lombok.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,10 +16,7 @@ public class Team {
 
 
 
-    private void addIfPresentOrStub(Optional<Player> optional, Position position) {
-        Player player = optional.orElse(new Player("—", position, 0, "-", "-"));
-        players.add(player);
-    }
+
 
     public void displayTeam(){
         Player gk  = findFirst(Position.GK);
@@ -56,26 +50,31 @@ public class Team {
         for (int i =0;i<players.size();i++){
             total+=players.get(i).getRating();
         }
-        return total/10;
+        return total/11;
     }
     public int getChemistry() {
-        int sameNationality = 0;
-        int sameClub = 0;
-        for (int i = 0; i < players.size(); i++) {
-            for (int j = i + 1; j < players.size(); j++) {
-                Player p1 = players.get(i);
-                Player p2 = players.get(j);
-
-                if (p1.getNationality().equals(p2.getNationality())) {
-                    sameNationality += 1;
+        chemistry = 0;
+        for (Player p1:players){
+            int playerChemistry = 0;
+            for(Player p2:players){
+                if (p1==p2){
+                    continue;
                 }
-                if (p1.getClub().equals(p2.getClub())) {
-                    sameClub += 3;
+                if(p1.getClub().equals(p2.getClub())){
+                    playerChemistry+=3;
+                }
+                if (p1.getNationality().equals(p2.getNationality())){
+                    playerChemistry+=1;
+                }
+                if (playerChemistry>3){
+                    playerChemistry =3;
+                    break;
                 }
 
             }
+            chemistry += playerChemistry;
         }
-        return sameClub + sameNationality;
+        return chemistry;
     }
     private Player findFirst(Position position) {
         return players.stream()

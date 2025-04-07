@@ -8,7 +8,7 @@
 
 ---
 
-## 🧱 Entities
+## 🧱 main.Logic.Entities
 
 ### 👤 Player
 - `name: String`
@@ -80,4 +80,4 @@ At the end of the draft:
 | Collections | Teams, player pools |
 | Random | Generating player options |
 | Input handling | Interactive menu |
-| Logic | Draft rules, match simulation |
+| main.Logic | Draft rules, match simulation |
